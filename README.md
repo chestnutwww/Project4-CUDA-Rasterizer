@@ -24,42 +24,42 @@ CUDA Rasterizer
     * (Fragment shader) simple lighting scheme, such as Lambert or Blinn-Phong.
 
 <p align="center">
-  <img src="renders/cow.png">
-  <img src="renders/flower.png">
+  <img src="renders/cow.png" style="width:500px">
+  <img src="renders/flower.png" style="width:500px">
 </p>
 
 ## 2. Support for rasterizing lines and points
 * **Points**
 Assemble primitives as points instead of triangles.
 <p align="center">
-  <img src="renders/points.png">
+  <img src="renders/points.png" style="width:500px">
 </p>
 
 * **Lines**
 Assemble primitives as lines instead of triangles.
 <p align="center">
-  <img src="renders/lines.png">
+  <img src="renders/lines.png" style="width:500px">
 </p>
 <p align="center">
-  <img src="renders/car_lines.png">
+  <img src="renders/car_lines.png" style="width:500px">
 </p>
 
 ## 3. Correct color interpolation between points on a primitive.
 Use barycentric coordinates to interpolate colors in each triangle. See the top of the car.
 <p align="center">
-  <img src="renders/car.png">
+  <img src="renders/car.png" style="width:500px">
 </p>
 
 ## 4. UV texture mapping with bilinear texture filtering and perspective correct texture coordinates.
 Read texture from glTF and use bilinear texture filtering in fragment shader to get texture. Also correctly interpolate Z in rasterization.
 <p align="center">
-  <img src="renders/duck.png">
+  <img src="renders/duck.png" style="width:500px">
 </p>
 
 ## 5. Non-Photorealistic Rendering (Toon Shading)
 In fragment shader, add toon shading method. To implement toon shading, just discretize the lambert and specular term by some step size(here stepsize = 3), and use lerp to decide the fraction of toon effect in final color(here fraction = 0.7).
 <p align="center">
-  <img src="renders/duck_toon.png">
+  <img src="renders/duck_toon.png" style="width:500px">
 </p>
 
 ## 6. Backface culling
@@ -68,13 +68,13 @@ In rasterization part, ignore triangles that face the same direction as the came
 # Performance Analysis
 ## Breakdown of time spent in each pipeline stage for a three different models
 <p align="center">
-  <img src="renders/breakdown.png">
+  <img src="renders/breakdown.png" style="width:500px">
 </p>
 It shows that the rasterization takes the most part of time in car and duck model, but only small part in duck model. Because duck model has many faces(triangles) with smaller area, which means in each thread(each triangle), the number of fragments are less than other two models.
 
 ## Bakcface Culling
 <p align="center">
-  <img src="renders/backfaceculling.png">
+  <img src="renders/backfaceculling.png" style="width:500px">
 </p>
 It shows that backface culling do improve performance for model with many backfaces.
 
