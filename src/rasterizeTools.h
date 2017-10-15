@@ -29,6 +29,7 @@ glm::vec3 multiplyMV(glm::mat4 m, glm::vec4 v) {
 /**
  * Finds the axis aligned bounding box for a given triangle.
  */
+
 __host__ __device__ static
 AABB getAABBForTriangle(const glm::vec3 tri[3]) {
     AABB aabb;
@@ -98,4 +99,12 @@ float getZAtCoordinate(const glm::vec3 barycentricCoord, const glm::vec3 tri[3])
     return -(barycentricCoord.x * tri[0].z
            + barycentricCoord.y * tri[1].z
            + barycentricCoord.z * tri[2].z);
+}
+
+__host__ __device__ static
+float getRealZAtCoordinate(const glm::vec3 barycentricCoord, const glm::vec3 tri[3]) {
+	float one_Z = barycentricCoord.x * (1.0f / tri[0].z)
+		+ barycentricCoord.y * (1.0f / tri[1].z)
+		+ barycentricCoord.z * (1.0f / tri[2].z);
+	return 1.0f / one_Z;
 }
