@@ -28,13 +28,13 @@ CUDA Rasterizer
 </p>
 
 ## 2. Support for rasterizing lines and points
-* **Points**
+* **Points**:
 Assemble primitives as points instead of triangles.
 <p align="center">
   <img src="renders/points.png">
 </p>
 
-* **Lines**
+* **Lines**:
 Assemble primitives as lines instead of triangles.
 <p align="center">
   <img src="renders/lines.png">
@@ -65,13 +65,13 @@ In fragment shader, add toon shading method. To implement toon shading, just dis
 In rasterization part, ignore triangles that face the same direction as the camera-to-triangle ray.
 
 # Performance Analysis
-## Breakdown of time spent in each pipeline stage for a three different models
+## 1. Breakdown of time spent in each pipeline stage for a three different models
 <p align="center">
   <img src="renders/breakdown.png">
 </p>
 It shows that the rasterization takes the most part of time in car and duck model, but only small part in duck model. Because duck model has many faces(triangles) with smaller area, which means in each thread(each triangle), the number of fragments are less than other two models.
 
-## Bakcface Culling
+## 2. Bakcface Culling
 <p align="center">
   <img src="renders/backfaceculling.png">
 </p>
