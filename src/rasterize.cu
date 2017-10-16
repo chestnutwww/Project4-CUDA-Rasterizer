@@ -257,13 +257,13 @@ void render(int w, int h, Fragment *fragmentBuffer, glm::vec3 *framebuffer) {
 		// ------------ Use comment to decide which shading to uese ------------
 		// ---------------------------------------------------------------------
 		// 1. Lambert Shading
-		//framebuffer[index] = lambertShading(fragmentBuffer, index, light_eyePos);
+		framebuffer[index] = lambertShading(fragmentBuffer, index, light_eyePos);
 		
 		// 2. Blinn-Phong Shading
 		//framebuffer[index] = blinnPhongShading(fragmentBuffer, index, light_eyePos);
 
 		// 3. ToonShading
-		framebuffer[index] = toonShading(fragmentBuffer, index, light_eyePos);
+		//framebuffer[index] = toonShading(fragmentBuffer, index, light_eyePos);
 		// ---------------------------------------------------------------------
 
 
@@ -907,8 +907,8 @@ void _rasterization(
 			tri_screen[i] = glm::vec3(dev_primitives[pid].v[i].screenPos, 0.0f);
 			tri_eye[i] = dev_primitives[pid].v[i].eyePos;
 			tri_norm[i] = dev_primitives[pid].v[i].eyeNor;
-			//tri_color[i] = dev_primitives[pid].v[i].color;
-			tri_color[i] = glm::vec3(0.5f, 0.5f, 0.5f);
+			tri_color[i] = dev_primitives[pid].v[i].eyeNor;
+			//tri_color[i] = glm::vec3(0.5f, 0.5f, 0.5f);
 			tri_texcoord0[i] = dev_primitives[pid].v[i].texcoord0;
 		}
 

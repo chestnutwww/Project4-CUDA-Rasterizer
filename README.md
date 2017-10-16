@@ -44,15 +44,15 @@ Assemble primitives as lines instead of triangles.
 </p>
 
 ## 3. Correct color interpolation between points on a primitive.
-Use barycentric coordinates to interpolate colors in each triangle. See the top of the car.
+Use barycentric coordinates to interpolate colors in each triangle. Use the vertex normal as vertex color to test.
 <p align="center">
-  <img src="renders/car.png">
+  <img src="renders/normal.png">
 </p>
 
 ## 4. UV texture mapping with bilinear texture filtering and perspective correct texture coordinates.
 Read texture from glTF and use bilinear texture filtering in fragment shader to get texture. Also correctly interpolate Z in rasterization.
 <p align="center">
-  <img src="renders/duck.png">
+  <img src="renders/perspective.png">
 </p>
 
 ## 5. Non-Photorealistic Rendering (Toon Shading)
