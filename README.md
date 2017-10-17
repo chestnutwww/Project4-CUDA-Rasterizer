@@ -51,12 +51,30 @@ Use barycentric coordinates to interpolate colors in each triangle. Use the vert
 
 ## 4. UV texture mapping with bilinear texture filtering and perspective correct texture coordinates.
 Read texture from glTF and use bilinear texture filtering in fragment shader to get texture. Also correctly interpolate Z in rasterization.
+
+* Before
+
+<p align="center">
+  <img src="renders/beforeperspective.png">
+</p>
+
+* After
+
 <p align="center">
   <img src="renders/perspective.png">
 </p>
 
 ## 5. Non-Photorealistic Rendering (Toon Shading)
 In fragment shader, add toon shading method. To implement toon shading, just discretize the lambert and specular term by some step size(here stepsize = 3), and use lerp to decide the fraction of toon effect in final color(here fraction = 0.7).
+
+* Before
+
+<p align="center">
+  <img src="renders/duck.png">
+</p>
+
+* After
+
 <p align="center">
   <img src="renders/duck_toon.png">
 </p>

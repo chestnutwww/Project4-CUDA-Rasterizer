@@ -943,11 +943,19 @@ void _rasterization(
 								dev_fragment[fid].eyeNor = glm::normalize(tri_norm[0] * coef[0] + tri_norm[1] * coef[1] + tri_norm[2] * coef[2]);
 								dev_fragment[fid].eyePos = tri_eye[0] * coef[0] + tri_eye[1] * coef[1] + tri_eye[2] * coef[2];
 								dev_fragment[fid].dev_diffuseTex = dev_primitives[pid].v[0].dev_diffuseTex;
+								
 								dev_fragment[fid].texcoord0 = 
 									tri_texcoord0[0] * coef[0] / tri_eye[0].z
 									+ tri_texcoord0[1] * coef[1] / tri_eye[1].z
 									+ tri_texcoord0[2] * coef[2] / tri_eye[2].z;
 								dev_fragment[fid].texcoord0 *= getRealZAtCoordinate(coef, tri_eye);
+								
+								/*
+								dev_fragment[fid].texcoord0 =
+									tri_texcoord0[0] * coef[0]
+									+ tri_texcoord0[1] * coef[1]
+									+ tri_texcoord0[2] * coef[2];
+								*/
 								dev_fragment[fid].diffuseTexWidth = dev_primitives[pid].v[0].diffuseTexWidth;
 								dev_fragment[fid].diffuseTexHeight = dev_primitives[pid].v[0].diffuseTexHeight;
 							}
